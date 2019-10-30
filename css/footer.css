@@ -1,5 +1,5 @@
 footer{
-    background-color: var(--dark-green);
+    background:linear-gradient(var(--dark-green), rgb(8, 110, 8), black);
     margin: 0 auto;
     width: 1200px;
     display: flex;
