@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --dark-red: #7D0124;
+    --brown: #C7883C;
+    --dark-green: #037270;
+    --light-green: #88C8C7;
+    --serif:'Playfair Display', serif;
+    --sans-serif: 'Roboto', sans-serif;
+    --sfs:24px;
+}

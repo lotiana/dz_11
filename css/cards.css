@@ -1,0 +1,66 @@
+.cards{
+    margin: 0 auto;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    width:calc(100%/3);
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    border: 2px solid var(--dark-green);
+}
+.card:hover{
+    /* border: 5px groove var(--light-green); */
+    /* cursor: pointer; */
+}
+.card__img{
+    height: 210px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.card__moscow{
+    background-image: url('../img/moscow.png');
+}
+.card__london{
+    background-image: url('../img/big-ben.png');
+}
+.card__africa{
+    background-image: url('../img/pyramids.png');
+}
+
+.card__north{
+    background-image: url('../img/north-america.png');
+}
+.card__south{
+    background-image: url('../img/south-america.png');
+}
+
+.card__australia{
+    background-image: url('../img/kangaroo.png');
+}
+
+
+.card__h3{
+    text-align: center;
+    padding: 10px 0;
+    font-family: var(--serif);
+    font-size: 1.5em;
+    height: 85px;
+}
+.card__line{
+    width: 90px;
+    height:5px;
+    background-color: var(--dark-red);
+    margin: 10px auto 0 auto;
+    margin-bottom: 10px;
+}
+.card__p{
+    width: 250px;
+    margin: 10px auto;
+    text-align: center;
+    font-family: var(--sans-serif);
+    font-size: calc(var(--sfs)/1.2);
+}
