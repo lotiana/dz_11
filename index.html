@@ -13,11 +13,16 @@
    <header class="header">
        <div class="logo"></div>
        <nav class="nav">
-           <a href="#">Главная</a>
-           <a href="#">О нас</a>
-           <a href="#">Контакты</a>
+           <a href="#main">Главная</a>
+           <a href="#about">О нас</a>
+           <a href="#contacts">Контакты</a>
        </nav>
    </header>
+   <div class="side_nav">
+        <a  class="side_nav__a" href="#main">Главная</a>
+        <a  class="side_nav__a" href="#about">О нас</a>
+        <a  class="side_nav__a" href="#contacts">Контакты</a>
+   </div>
    <div class="promo">
        <div class="action">
         <h3 class="action__h3">
@@ -33,7 +38,7 @@
             <a href="https://instagram.com" target="blank"><div class="soc_icons  soc_icons__inst"></div> </a> 
        </div>
    </div>
-   <section class="info">
+   <section class="info" id="main">
         <h3 class="info__h3">
             Путешествуй красиво! Блог в фотографиях!
         </h3>
@@ -64,7 +69,7 @@
        </ul>
    </section>
 
-   <section class="cards">
+   <section class="cards" id="about">
     <div class="card animated zoomIn">
         <div class="card__img card__moscow"></div>
         <h3 class="card__h3"> Путешествия по России</h3>
@@ -114,7 +119,25 @@
         </p>
     </div>
    </section>
-   <footer>
+   <section class="form_wrapper">
+        <h3 class="form__h3"> Оставьте заявку </h3>
+        <form action="post.php" method="GET">
+            <label for="name"> Ваше имя</label>
+            <input type="text" name="name" placeholder="ваше имя" required minlength="2" maxlength="16">
+
+            <label for="surname"> Ваша фамилия</label>
+            <input type="text" name="surname" placeholder="ваша фамилия" required minlength="2" maxlength="16">
+
+            <label for="telephone"> Ваше имя</label>
+            <input type="tel" name="telephone" placeholder="ваш телефон" required minlength="7"
+            minlength="13">
+            <textarea name="message" cols="38" rows="5" placeholder="ваше сообщение"></textarea>
+            <button type="submit"> Отправить </button>
+        </form>
+
+   </section>
+
+   <footer  id="contacts">
        <div class="footer_wrap">
        <div class="contacts">
            <h5 class="contacts__h5 contacts__orange"> Мы рядом с вами </h5>
