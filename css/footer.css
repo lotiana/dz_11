@@ -55,3 +55,43 @@ footer .soc{
     margin-bottom: 10px;
 }
 
+.ck_warning{
+    position: fixed;
+    bottom: 0%;
+    background-color: rgba(250, 10, 10, 0.3);
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ck_warning__h3{
+    width: 300px;
+    color: white;
+    background: var(--dark-green);
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+
+}
+.ck_warning__cross{
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ck_warning__cross:hover{
+    background-color: white;
+}
+.ck_warning__cross i {
+    font-size: 32px;
+    cursor: pointer;
+}
+.ck_warning__cross i:hover{
+    color: red;
+}
