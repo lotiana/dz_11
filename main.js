@@ -10,10 +10,33 @@ let cross = document.querySelectorAll('.ck_warning__cross');
 let promo_form = document.querySelector('.form_wrapper');
 let action__btn = document.querySelector('.action__btn');
 let def_animation = 'fadeOutUp';
+let faq_quest = document.querySelectorAll(".faq__panel__quest");
+let faq_answer = document.querySelectorAll(".faq__panel__answer");
 
 
+var flag = true;
 
-console.dir(card__lines);
+for (let i = 0; i < faq_quest.length; i++) {
+    faq_quest[i].onclick = function(){
+        faq_answer[i].classList.add("animated");
+        if(flag){
+            faq_answer[i].classList.remove("zoomOut");
+            faq_answer[i].classList.add("zoomIn");
+            faq_answer[i].classList.add("faq_helper");
+            flag = false;
+        } 
+        else {
+            faq_answer[i].classList.remove("zoomIn");
+            faq_answer[i].classList.add("zoomOut");
+            flag = true;
+            setTimeout(() => {
+                faq_answer[i].classList.remove("faq_helper");
+            }, 400);
+        }
+
+    }
+}
+
 
 for (let i = 0; i < card__lines.length; i++) {
     card__lines[i].onclick = function(){

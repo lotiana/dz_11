@@ -1,0 +1,31 @@
+.faq_wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq__panel {
+   
+    margin: 10px 0 40px 0;
+}
+
+.faq__panel__quest {
+    color: white;
+    background-color: var(--dark-green);
+    font-size: var(--sfs);
+    font-family: var(--serif);
+    padding: 7px 15px;
+    cursor: pointer;
+}
+.faq__panel__answer{
+    font-size: var(--sfs);
+    font-family: var(--sans-serif);
+    padding: 7px;
+    display: none;
+    border: 2px solid black;
+}
+.faq_helper{
+    transition: all 0.5s;
+    display: block;
+}
