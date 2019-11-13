@@ -1,18 +1,25 @@
-// let age = prompt("введите ваш возраст: ");
+// при клике на красную  линию увеличивается плавно сама линия
 
-// if(age>= 18){
-//     alert("проходите");
-// } else{
-//     alert("возвращайтесь с родителями");
-// }
 
-// пользователь щелкает по крестику нашей панели,
-// потом панель пропадает
+
+
+let ck; //undefined
+let card__lines = document.querySelectorAll('.card__line');
 let ck_warning = document.querySelector('.ck_warning');
 let cross = document.querySelectorAll('.ck_warning__cross');
 let promo_form = document.querySelector('.form_wrapper');
 let action__btn = document.querySelector('.action__btn');
 let def_animation = 'fadeOutUp';
+
+
+
+console.dir(card__lines);
+
+for (let i = 0; i < card__lines.length; i++) {
+    card__lines[i].onclick = function(){
+        this.classList.toggle('card__line__helper');
+    }
+}
 
 
 cross[1].onclick = () => {

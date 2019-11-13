@@ -56,6 +56,8 @@
     background-color: var(--dark-red);
     margin: 10px auto 0 auto;
     margin-bottom: 10px;
+    cursor:pointer;
+    transition: width 0.8s;
 }
 .card__p{
     width: 250px;
@@ -63,4 +65,8 @@
     text-align: center;
     font-family: var(--sans-serif);
     font-size: calc(var(--sfs)/1.2);
+}
+.card__line__helper{
+    background-color: green;
+    width: 150px;
 }
