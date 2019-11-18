@@ -14,24 +14,30 @@ let faq_quest = document.querySelectorAll(".faq__panel__quest");
 let faq_answer = document.querySelectorAll(".faq__panel__answer");
 
 
-var flag = true;
+var flags = []; // частный счет
+//у нас массив, в котором есть значения true
 
 for (let i = 0; i < faq_quest.length; i++) {
+    flags.push(true);
+    console.log(flags);
     faq_quest[i].onclick = function(){
+
         faq_answer[i].classList.add("animated");
-        if(flag){
+        if(flags[i]){
             faq_answer[i].classList.remove("zoomOut");
             faq_answer[i].classList.add("zoomIn");
             faq_answer[i].classList.add("faq_helper");
-            flag = false;
+            flags[i] = false; 
+            console.log(flags[i]);
         } 
         else {
             faq_answer[i].classList.remove("zoomIn");
             faq_answer[i].classList.add("zoomOut");
-            flag = true;
+            flags[i] = true;
             setTimeout(() => {
                 faq_answer[i].classList.remove("faq_helper");
             }, 400);
+            console.log(flags[i]);
         }
 
     }
