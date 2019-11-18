@@ -95,16 +95,22 @@ cross[0].onclick = () => {
 
 setTimeout(() => {
     let answer = prompt("введите страну, в которую хотите отправиться");
-    answer = answer.toLowerCase();
+    let answer2 = prompt("введите еще страну");
     let promo  = document.querySelector(".promo");
+    let footer = document.querySelector("footer");
     let arr_country = ["финляндия", "эстония", "норвегия", "швеция", "дания", "болгария"];
-    for(let i = 0; i < arr_country.length; i++){
-    if(answer == arr_country[i]){
-        //происходит смена бэкграунда..
-        promo.style.backgroundImage = `url(img/${arr_country[i]}.jpeg)`;
-        } 
-    }
+    GetInfo(answer, arr_country, promo);
+    GetInfo(answer2, arr_country, footer);
 }, 600);
+
+function GetInfo(info, arr, el) {
+    info = info.toLowerCase();
+    for (let i = 0; i < arr.length; i++) {
+        if (info == arr[i]) {
+            el.style.backgroundImage = `url(img/${arr[i]}.jpeg)`;
+        }
+    }
+}
 
 
 
