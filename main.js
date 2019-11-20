@@ -92,25 +92,74 @@ cross[0].onclick = () => {
 // в зависимости от ответа меняет background promo
 //страница должна полностью загрузиться
 //данные должны приводится к нижнему регистру для универсальности
-
 setTimeout(() => {
     let answer = prompt("введите страну, в которую хотите отправиться");
     let answer2 = prompt("введите еще страну");
     let promo  = document.querySelector(".promo");
     let footer = document.querySelector("footer");
     let arr_country = ["финляндия", "эстония", "норвегия", "швеция", "дания", "болгария"];
-    GetInfo(answer, arr_country, promo);
-    GetInfo(answer2, arr_country, footer);
+    let arr_hello = ["Хей фин", "Хей эст","Хей норв","Хей швед","Хей дания","Хей болг"];
+    GetInfo(answer, arr_country, arr_hello, promo);
+    GetInfo(answer2, arr_country, arr_hello, footer);
 }, 600);
 
-function GetInfo(info, arr, el) {
+
+
+
+function GetInfo(info, arr_c, arr_v,  el) { 
     info = info.toLowerCase();
-    for (let i = 0; i < arr.length; i++) {
-        if (info == arr[i]) {
-            el.style.backgroundImage = `url(img/${arr[i]}.jpeg)`;
+    for (let i = 0; i < arr_c.length; i++) {
+        if (info == arr_c[i]) {
+            el.style.backgroundImage = `url(img/${arr_c[i]}.jpeg)`;
+            alert(arr_v[i]);
         }
     }
 }
+
+function drawError(text, el){
+    el.innerHTML = text;
+}
+
+//валидизация формы
+// с расчетом только 1 форма на данной странице
+$('form').submit(function(e){ // e = events
+    
+    e.preventDefault();
+    let nameVal = $(this).find("[name = 'name']").val();
+    let fioVal = $(this).find("[name = 'surname']").val();
+    let telVal = $(this).find("[name = 'telephone']").val();
+    let textVal = $(this).find("[name = 'message']").val();
+    let arr_labels = ['name', 'surname', 'telephone', 'message'];
+    if(nameVal =='' || fioVal == '' || telVal == '' || textVal=='' ){
+       let err =  document.querySelector(".error_message");
+       let error_message = "какое-то из полей пустует!";
+       drawError(error_message, err);
+       CheckEmpty(nameVal, arr_labels[0]);
+       CheckEmpty(fioVal, arr_labels[1]);
+       CheckEmpty(telVal, arr_labels[2]);
+       CheckEmpty(textVal, arr_labels[3]);
+    } else{
+        CheckEmpty(nameVal, arr_labels[0]);
+        CheckEmpty(fioVal, arr_labels[1]);
+        CheckEmpty(telVal, arr_labels[2]);
+        CheckEmpty(textVal, arr_labels[3]);
+        let err =  document.querySelector(".error_message");
+        err.remove();
+        setTimeout(() => {
+            e.stopPropagation();
+        }, 300);
+    }
+
+})
+
+function CheckEmpty(el, label_name){
+    if(el == ''){
+        $('form').find(`[for = '${label_name}']`).css('color', 'red');
+    } else{
+        $('form').find(`[for = '${label_name}']`).css('color', 'lightblue');
+    }
+}
+
 
 
 

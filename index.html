@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="jq.js" defer></script>
     <script src="main.js" defer></script>
     <title>Путешествия</title>
 </head>
@@ -135,16 +136,18 @@
     </section>
     <section class="form_wrapper animated">
         <h3 class="form__h3"> Оставьте заявку </h3>
+        <span class="error_message">  </span>
 
         <form action="post.php" method="GET">
             <label for="name"> Ваше имя</label>
-            <input type="text" name="name" placeholder="ваше имя" required minlength="2" maxlength="16">
+            <input type="text" name="name" placeholder="ваше имя"  minlength="2" maxlength="16">
 
             <label for="surname"> Ваша фамилия</label>
-            <input type="text" name="surname" placeholder="ваша фамилия" required minlength="2" maxlength="16">
+            <input type="text" name="surname" placeholder="ваша фамилия"  minlength="2" maxlength="16">
 
-            <label for="telephone"> Ваше имя</label>
-            <input type="tel" name="telephone" placeholder="ваш телефон" required minlength="7" minlength="13">
+            <label for="telephone"> Ваш телефон</label>
+            <input type="tel" name="telephone" placeholder="ваш телефон"  minlength="7" minlength="13">
+            <label for="message"> Ваш телефон</label>
             <textarea name="message" cols="38" rows="5" placeholder="ваше сообщение"></textarea>
             <button type="submit"> Отправить </button>
 

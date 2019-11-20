@@ -79,3 +79,8 @@
     right:35%;
     top:20%;
 }
+.error_message{
+    color: red;
+    font-style: italic;
+    font-size: 19px;
+}
