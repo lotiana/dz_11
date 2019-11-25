@@ -19,22 +19,22 @@ let faq_quest = document.querySelectorAll(".faq__panel__quest");
 let faq_answer = document.querySelectorAll(".faq__panel__answer");
 
 
-var flags = []; 
+var flags = [];
 //у нас массив, в котором есть значения true
 
 for (let i = 0; i < faq_quest.length; i++) {
     flags.push(true);
     console.log(flags);
-    faq_quest[i].onclick = function(){
+    faq_quest[i].onclick = function () {
 
         faq_answer[i].classList.add("animated");
-        if(flags[i]){
+        if (flags[i]) {
             faq_answer[i].classList.remove("zoomOut");
             faq_answer[i].classList.add("zoomIn");
             faq_answer[i].classList.add("faq_helper");
-            flags[i] = false; 
+            flags[i] = false;
             console.log(flags[i]);
-        } 
+        }
         else {
             faq_answer[i].classList.remove("zoomIn");
             faq_answer[i].classList.add("zoomOut");
@@ -50,10 +50,10 @@ for (let i = 0; i < faq_quest.length; i++) {
 
 /*
 часть посвященная карточкам
-*/ 
+*/
 
 for (let i = 0; i < card__lines.length; i++) {
-    card__lines[i].onclick = function(){
+    card__lines[i].onclick = function () {
         this.classList.toggle('card__line__helper');
     }
 }
@@ -67,10 +67,10 @@ cross[1].onclick = () => {
 }
 
 action__btn.onclick = () => {
-    if(promo_form.classList.contains(def_animation)){
+    if (promo_form.classList.contains(def_animation)) {
         promo_form.classList.remove(def_animation);
     }
-    promo_form.style.display = "flex"; 
+    promo_form.style.display = "flex";
     // alert("по мне кликнили");
 }
 
@@ -79,7 +79,7 @@ cross[0].onclick = () => {
     setTimeout(() => {
         promo_form.style.display = "none";
     }, 400);
-    
+
     // ck_warning.remove();
 }
 // у нас есть форма, которая изначально не видна
@@ -95,10 +95,10 @@ cross[0].onclick = () => {
 setTimeout(() => {
     let answer = prompt("введите страну, в которую хотите отправиться");
     let answer2 = prompt("введите еще страну");
-    let promo  = document.querySelector(".promo");
+    let promo = document.querySelector(".promo");
     let footer = document.querySelector("footer");
     let arr_country = ["финляндия", "эстония", "норвегия", "швеция", "дания", "болгария"];
-    let arr_hello = ["Хей фин", "Хей эст","Хей норв","Хей швед","Хей дания","Хей болг"];
+    let arr_hello = ["Хей фин", "Хей эст", "Хей норв", "Хей швед", "Хей дания", "Хей болг"];
     GetInfo(answer, arr_country, arr_hello, promo);
     GetInfo(answer2, arr_country, arr_hello, footer);
 }, 600);
@@ -106,7 +106,7 @@ setTimeout(() => {
 
 
 
-function GetInfo(info, arr_c, arr_v,  el) { 
+function GetInfo(info, arr_c, arr_v, el) {
     info = info.toLowerCase();
     for (let i = 0; i < arr_c.length; i++) {
         if (info == arr_c[i]) {
@@ -116,46 +116,76 @@ function GetInfo(info, arr_c, arr_v,  el) {
     }
 }
 
-function drawError(text, el){
+function drawError(text, el) {
     el.innerHTML = text;
 }
+let form = document.querySelector("form");
+
 
 //валидизация формы
 // с расчетом только 1 форма на данной странице
-$('form').submit(function(e){ // e = events
-    
-    e.preventDefault();
-    let nameVal = $(this).find("[name = 'name']").val();
-    let fioVal = $(this).find("[name = 'surname']").val();
-    let telVal = $(this).find("[name = 'telephone']").val();
-    let textVal = $(this).find("[name = 'message']").val();
-    let arr_labels = ['name', 'surname', 'telephone', 'message'];
-    if(nameVal =='' || fioVal == '' || telVal == '' || textVal=='' ){
-       let err =  document.querySelector(".error_message");
-       let error_message = "какое-то из полей пустует!";
-       drawError(error_message, err);
-       CheckEmpty(nameVal, arr_labels[0]);
-       CheckEmpty(fioVal, arr_labels[1]);
-       CheckEmpty(telVal, arr_labels[2]);
-       CheckEmpty(textVal, arr_labels[3]);
-    } else{
-        CheckEmpty(nameVal, arr_labels[0]);
-        CheckEmpty(fioVal, arr_labels[1]);
-        CheckEmpty(telVal, arr_labels[2]);
-        CheckEmpty(textVal, arr_labels[3]);
-        let err =  document.querySelector(".error_message");
+form = document.querySelector('form');
+document.addEventListener("keypress", (e) => {
+    if (e.key == "Enter" && promo_form.style.display === 'flex') {
+        validate(e); //
+    }
+})
+form.addEventListener("submit", validate);
+    console.warn(this);
+    function validate(e) { // e = events
+    e.preventDefault(); // останавливает отправку формы
+    let nameVal = form.querySelector("[name = 'name']").value;
+    let fioVal = form.querySelector("[name = 'surname']").value;
+    let telVal = form.querySelector("[name = 'telephone']").value;
+    let textVal = form.querySelector("[name = 'message']").value; 
+    let elem_form = [nameVal, fioVal, telVal, textVal]; //массив инпутов
+    let arr_labels = ['name', 'surname', 'telephone', 'message']; // массив for лейблов
+    if (nameVal == '' || fioVal == '' || telVal == '' || textVal == '') { 
+        let err = document.querySelector(".error_message"); 
+        let error_message = "какое-то из полей пустует!";
+        drawError(error_message, err);
+        for (let i = 0; i < elem_form.length; i++) {
+            CheckEmpty(elem_form[i], arr_labels[i]);
+        }
+    } else {
+        for (let i = 0; i < elem_form.length; i++) {
+            CheckEmpty(elem_form[i], arr_labels[i]);
+        }
+        let err = document.querySelector(".error_message");
         err.remove();
         setTimeout(() => {
-            e.stopPropagation();
+            e.stopPropagation(); // отмена всплывающего события
         }, 300);
     }
+}
 
-})
 
-function CheckEmpty(el, label_name){
-    if(el == ''){
+function draw() {
+    console.log(this);
+    this.style.color = "blue";
+    this.innerHTML = "*****";
+
+}
+let header = document.querySelector("header");
+let a_arr = header.querySelectorAll("a");
+
+//к сожалению, map не сработает, потому что элементы являются коллекцией,
+// а не полноценным массивом
+a_arr.forEach(el => {
+    el.addEventListener("mouseover", draw, true);
+});
+
+
+// alert(promo_form.classList.contains(def_animation));
+
+
+
+
+
+function CheckEmpty(el, label_name) {
+    if (el == '') {
         $('form').find(`[for = '${label_name}']`).css('color', 'red');
-    } else{
+    } else {
         $('form').find(`[for = '${label_name}']`).css('color', 'lightblue');
     }
 }
