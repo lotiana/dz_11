@@ -191,8 +191,32 @@ function CheckEmpty(el, label_name) {
 }
 
 
+let nav = document.querySelector(".nav");
+//  function navblue() {
+// console.log(this);
+// nav.style.backgroundColor = "red";
+    
+
+//  }
+
+document.addEventListener("keydown", (e) => {
+    if (event.code == "Digit1") {
+        nav.style.backgroundColor = "blue";
+        navblue(); 
+    }
+    if (event.code == "Digit2") {
+        //nav.style.background = "red";
+        nav.style.backgroundColor = "rgb(3, 114, 112)";
+
+    }
+})
 
 
+// document.addEventListener('keydown', function(event) {
+//     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+//       alert('Отменить!')
+//     }
+//   });
 
 
 
