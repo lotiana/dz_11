@@ -202,7 +202,7 @@ let nav = document.querySelector(".nav");
 document.addEventListener("keydown", (e) => {
     if (event.code == "Digit1") {
         nav.style.backgroundColor = "blue";
-        navblue(); 
+        //navblue(); 
     }
     if (event.code == "Digit2") {
         //nav.style.background = "red";
