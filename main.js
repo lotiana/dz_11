@@ -191,7 +191,7 @@ function CheckEmpty(el, label_name) {
 }
 
 
-let nav = document.querySelector(".nav");
+let nav = document.querySelector(".header");
 //  function navblue() {
 // console.log(this);
 // nav.style.backgroundColor = "red";
