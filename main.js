@@ -211,12 +211,30 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-
-// document.addEventListener('keydown', function(event) {
-//     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-//       alert('Отменить!')
-//     }
+// $('.multiple-items').slick({
+    
+//       infinite: true,
+    
+//       slidesToShow: 3,
+    
+//       slidesToScroll: 3
+    
+//     });
+// $('.autoplay').slick({
+    
+//       slidesToShow: 2,
+    
+//       slidesToScroll: 1,
+    
+//       autoplay: true,
+    
+//       autoplaySpeed: 2000,
+    
+//     });
+    
+// $('.autoplay').slick({
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     autoplaySpeed: 2000,
 //   });
-
-
-

@@ -9,7 +9,18 @@
     flex-direction: column;
     justify-content: center;
 }
+.your-class {
 
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center;
+
+
+}
 .action{
     display: flex;
     flex-direction: column;
