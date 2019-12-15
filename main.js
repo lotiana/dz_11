@@ -128,7 +128,8 @@ form = document.querySelector('form');
 document.addEventListener("keypress", (e) => {
     if (e.key == "Enter" && promo_form.style.display === 'flex') {
         validate(e); 
-        testFunction();
+        form.onsubmit = testFunction();
+        form.submit();
     }
 })
 form.addEventListener("submit", validate);
