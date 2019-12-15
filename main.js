@@ -127,7 +127,8 @@ let form = document.querySelector("form");
 form = document.querySelector('form');
 document.addEventListener("keypress", (e) => {
     if (e.key == "Enter" && promo_form.style.display === 'flex') {
-        validate(e); //
+        validate(e); 
+        testFunction();
     }
 })
 form.addEventListener("submit", validate);
@@ -143,6 +144,7 @@ form.addEventListener("submit", validate);
     if (nameVal == '' || fioVal == '' || telVal == '' || textVal == '') { 
         let err = document.querySelector(".error_message"); 
         let error_message = "какое-то из полей пустует!";
+
         drawError(error_message, err);
         for (let i = 0; i < elem_form.length; i++) {
             CheckEmpty(elem_form[i], arr_labels[i]);
@@ -150,16 +152,34 @@ form.addEventListener("submit", validate);
     } else {
         for (let i = 0; i < elem_form.length; i++) {
             CheckEmpty(elem_form[i], arr_labels[i]);
+            //testFunction();
         }
         let err = document.querySelector(".error_message");
+       
         err.remove();
+       
         setTimeout(() => {
             e.stopPropagation(); // отмена всплывающего события
         }, 300);
     }
 }
+// document.addEventListener("keyup", (e) => {
+//     if (e.keyCode == 13 && promo_form.style.display === 'flex') {
+//         onsubmit=testFunction(); //
+//     }
+// })
+function testFunction() {
+    let nameVal = form.querySelector("[name = 'name']").value;
+    let fioVal = form.querySelector("[name = 'surname']").value;
+    let telVal = form.querySelector("[name = 'telephone']").value;
+    let textVal = form.querySelector("[name = 'message']").value; 
+    let elem_form = [nameVal, fioVal, telVal, textVal]; //массив инпутов
+    let arr_labels = ['name', 'surname', 'telephone', 'message'];
+    if (nameVal == '' || fioVal == '' || telVal == '' || textVal == '') { 
+        testFunction()= e.stopPropagation();}else{
 
-
+	alert("Форма была отправлена!");
+}}
 function draw() {
     console.log(this);
     this.style.color = "blue";
@@ -211,30 +231,4 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-// $('.multiple-items').slick({
-    
-//       infinite: true,
-    
-//       slidesToShow: 3,
-    
-//       slidesToScroll: 3
-    
-//     });
-// $('.autoplay').slick({
-    
-//       slidesToShow: 2,
-    
-//       slidesToScroll: 1,
-    
-//       autoplay: true,
-    
-//       autoplaySpeed: 2000,
-    
-//     });
-    
-// $('.autoplay').slick({
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     autoplaySpeed: 2000,
-//   });
+
